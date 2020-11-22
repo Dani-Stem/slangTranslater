@@ -1,4 +1,23 @@
+from tkinter import *
+
+class sTui:
+    def __init__(self, master):
+        self.master = master
+        master.title("Slang Translater")
+
+
+root = Tk()
+my_gui = sTui(root)
+root.minsize(500, 200)
+root.mainloop()
+
+
 userInput = input('Plz enter the sentence or paragraph you want translated: ') 
+
+words = {
+    'doobie':['paper filled and rolled with marijuana'],
+    'thot':['acronym for That Hoe Over There. meaning a promiscuous person'],
+}
 
 if (userInput.find('doobie') != -1):
     definition = 'paper filled and rolled with marijuana'
