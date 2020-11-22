@@ -1,14 +1,19 @@
 from tkinter import *
 
+root = Tk()
+root.minsize(500, 200)
+
 class sTui:
     def __init__(self, master):
         self.master = master
         master.title("Slang Translater")
 
+        self.label = Label(master, text="Plz enter the sentence or paragraph you want translated:")
+        #this doesnt work, idk why tho ??
+        self.label.place(relx = 1.5, rely = 0.5, anchor = 'center')
+        self.label.pack()
 
-root = Tk()
 my_gui = sTui(root)
-root.minsize(500, 200)
 root.mainloop()
 
 
