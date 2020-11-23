@@ -1,20 +1,25 @@
-from tkinter import *
+from tkinter import * 
+from tkinter.ttk import *
+   
+master = Tk() 
+master.geometry("300x100") 
+master.title("Slang Translater")
+  
+label0 = Label(master, text = "Plz enter the sentence or paragraph you want translated:") 
+label0.grid(row = 2, column = 2, sticky = W, pady = 2)
 
-root = Tk()
-root.minsize(500, 200)
+def get(event):
+    print(event.widget.get())
 
-class sTui:
-    def __init__(self, master):
-        self.master = master
-        master.title("Slang Translater")
+entry0 = Entry(master, width = 40) 
+entry0.grid(row = 3, column = 2, pady = 2) 
+entry0.bind('<Return>', get)
 
-        self.label = Label(master, text="Plz enter the sentence or paragraph you want translated:")
-        #this doesnt work, idk why tho ??
-        self.label.place(relx = 1.5, rely = 0.5, anchor = 'center')
-        self.label.pack()
-
-my_gui = sTui(root)
-root.mainloop()
+button0 = Button(master, command=get)
+button0.config(text="ENTER")
+button0.grid(row=4,column=2)
+  
+mainloop() 
 
 
 userInput = input('Plz enter the sentence or paragraph you want translated: ') 
