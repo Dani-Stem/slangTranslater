@@ -34,7 +34,7 @@ def enter():
         s=' '
         TransListBeg = (s.join(uIList[0:index]))
         TransListEnd = (s.join(uIList[index1:indexLen]))
-        master1.newlabel.set(TransListBeg + ' ' + definition + ' ' + TransListEnd)
+        newlabel = (TransListBeg + ' ' + definition + ' ' + TransListEnd)
     elif (userEntry.find('thot') != -1):
         definition = 'acronym for That Hoe Over There. meaning a promiscuous person'
         uIList = userEntry.split(' ')
