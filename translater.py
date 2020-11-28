@@ -16,9 +16,7 @@ def enter():
     master1.geometry("300x100") 
     master1.title("Slang Translater")
 
-
-def translated():
-
+    newlabel = ""
 
     userEntry = entry.get()
 
@@ -36,7 +34,7 @@ def translated():
         s=' '
         TransListBeg = (s.join(uIList[0:index]))
         TransListEnd = (s.join(uIList[index1:indexLen]))
-        print(TransListBeg + ' ' + definition + ' ' + TransListEnd)
+        master1.newlabel.set(TransListBeg + ' ' + definition + ' ' + TransListEnd)
     elif (userEntry.find('thot') != -1):
         definition = 'acronym for That Hoe Over There. meaning a promiscuous person'
         uIList = userEntry.split(' ')
@@ -50,9 +48,10 @@ def translated():
     else:
         print('There is nothing to translate here: ' + userEntry)
 
-master.bind('<Return>', translated())
+    label1 = Label(master1, text=newlabel)
+    label1.grid(row = 2, column = 2, sticky = W, pady = 2)
 
 button = Button(master, text = "Enter", command = enter)
 button.grid(row=4,column=2)
   
-mainloop()   
+mainloop()  
