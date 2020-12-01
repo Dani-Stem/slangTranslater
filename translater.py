@@ -1,5 +1,8 @@
 from tkinter import * 
 from tkinter.ttk import *
+from udpy import UrbanClient
+
+client = UrbanClient()
    
 master = Tk() 
 master.geometry("300x100") 
