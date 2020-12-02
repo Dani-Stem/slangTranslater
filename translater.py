@@ -23,33 +23,14 @@ def enter():
 
     userEntry = entry.get()
 
-    words = {
-        'doobie':['paper filled and rolled with marijuana'],
-        'thot':['acronym for That Hoe Over There. meaning a promiscuous person'],
-    }
+    if (userEntry == str('netflix and chill')):
 
-    if (userEntry.find('doobie') != -1):
-        definition = 'paper filled and rolled with marijuana'
-        uIList = userEntry.split(' ')
-        indexLen = len(uIList)
-        index = uIList.index('doobie')
-        index1 = uIList.index('doobie') + 1
-        s=' '
-        TransListBeg = (s.join(uIList[0:index]))
-        TransListEnd = (s.join(uIList[index1:indexLen]))
-        newlabel = (TransListBeg + ' ' + definition + ' ' + TransListEnd)
-    elif (userEntry.find('thot') != -1):
-        definition = 'acronym for That Hoe Over There. meaning a promiscuous person'
-        uIList = userEntry.split(' ')
-        indexLen = len(uIList)
-        index = uIList.index('thot')
-        index1 = uIList.index('thot') + 1
-        s=' '
-        TransListBeg = (s.join(uIList[0:index]))
-        TransListEnd = (s.join(uIList[index1:indexLen]))
-        print(TransListBeg + ' ' + definition + ' ' + TransListEnd)
+        defs = client.get_definition('netflix and chill')
+        newlabel = defs
     else:
         print('There is nothing to translate here: ' + userEntry)
+
+
 
     label1 = Label(master1, text=newlabel)
     label1.grid(row = 2, column = 2, sticky = W, pady = 2)
