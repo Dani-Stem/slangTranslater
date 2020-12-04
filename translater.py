@@ -23,9 +23,9 @@ def enter():
 
     userEntry = entry.get()
 
-    if (userEntry == str('netflix and chill')):
+    if (userEntry != str('')):
 
-        defs = client.get_definition('netflix and chill')
+        defs = client.get_definition(userEntry)
         newlabel = defs
     else:
         print('There is nothing to translate here: ' + userEntry)
