@@ -1,22 +1,22 @@
 from tkinter import * 
 from tkinter.ttk import *
-from udpy import UrbanClient
+from udpy import *
 
 client = UrbanClient()
    
 master = Tk() 
-master.geometry("300x100") 
+master.geometry("400x100") 
 master.title("Slang Translater")
   
-label = Label(master, text = "Plz enter the sentence or paragraph you want translated:") 
+label = Label(master, text = "  Plz enter the sentence or paragraph you want translated:") 
 label.grid(row = 2, column = 2, sticky = W, pady = 2)
 
-entry = Entry(master, width = 40)
+entry = Entry(master, width = 30)
 entry.grid(row = 3, column = 2, pady = 2) 
 
 def enter():
     master1 = Toplevel(master)
-    master1.geometry("300x100") 
+    master1.geometry("400x100") 
     master1.title("Slang Translater")
 
     newlabel = ""
@@ -26,16 +26,19 @@ def enter():
     if (userEntry != str('')):
 
         defs = client.get_definition(userEntry)
-        newlabel = defs
+        defs_split = defs.split("}", 1)
+        newLabel = defs_split[0]
+
     else:
         print('There is nothing to translate here: ' + userEntry)
 
 
 
-    label1 = Label(master1, text=newlabel)
+    label1 = Label(master1, text=newlabel, wraplength=400)
     label1.grid(row = 2, column = 2, sticky = W, pady = 2)
 
 button = Button(master, text = "Enter", command = enter)
 button.grid(row=4,column=2)
+button.bind('<Return>')
   
 mainloop()  
