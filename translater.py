@@ -1,6 +1,7 @@
 from tkinter import * 
 from tkinter.ttk import *
 from udpy import *
+import random
 
 client = UrbanClient()
    
@@ -14,7 +15,7 @@ label.grid(row = 2, column = 2, sticky = W, pady = 2)
 entry = Entry(master, width = 30)
 entry.grid(row = 3, column = 2, pady = 2) 
 
-def enter():
+def enter(evt):
     master1 = Toplevel(master)
     master1.geometry("400x100") 
     master1.title("Slang Translater")
@@ -26,11 +27,9 @@ def enter():
     if (userEntry != str('')):
 
         defs = client.get_definition(userEntry)
-        defs_split = defs.split("}", 1)
-        newLabel = defs_split[0]
-
+        newlabel = random.choice(defs)
     else:
-        print('There is nothing to translate here: ' + userEntry)
+        newlabel = "There is nothing to translate here "
 
 
 
@@ -39,6 +38,6 @@ def enter():
 
 button = Button(master, text = "Enter", command = enter)
 button.grid(row=4,column=2)
-button.bind('<Return>')
+master.bind('<Return>', enter)
   
 mainloop()  
