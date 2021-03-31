@@ -1,0 +1,15 @@
+from udpy import *
+import random
+
+client = UrbanClient()
+
+userEntry = input()
+
+if (userEntry != str('')):
+
+    defs = client.get_definition(userEntry)
+    entry = random.choice(defs)
+else:
+        entry = "There is nothing to translate here "
+
+print(entry)
